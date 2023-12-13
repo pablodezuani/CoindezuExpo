@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import store from '././src/store'
+import { Provider } from 'react-redux'
+import Navigation from './src/Navigation';
+import GlobalModal from "./src/shared/components/modal/globalModal/GlobalModal";
 
-export default function App() {
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    <Provider store={store}>
+    <GlobalModal/>
+      <Navigation/>
+    </Provider>
+  );  
+};
+export default App;
