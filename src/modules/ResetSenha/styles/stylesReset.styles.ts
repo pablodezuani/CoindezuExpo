@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { theme } from '../../../shared/components/themes/theme';
 
 
-export const CreateUserContainer = styled.ScrollView `
+export const ResetUserContainer = styled.ViewPagerAndroid `
 background-color: ${theme.colors.bluetheme.azul}
 
 `;

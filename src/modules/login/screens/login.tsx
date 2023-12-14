@@ -32,6 +32,7 @@ handleOnPress,
 handleOnChangeEmail,
 handleOnChangeSenha,
 handleGoToCreateUser,
+handleGoToResetUser,
 
   } = useLogin();
 return (
@@ -58,9 +59,9 @@ return (
       placeholder="Digite Sua senha" 
       title="Senha: "
       onChange={handleOnChangeSenha}/>
-      <TouchableOpacity onPress={handleGoToCreateUser}>
+    <TouchableOpacity onPress={handleGoToResetUser}>
       <Text style={{fontSize:12,marginTop:8,marginStart:200}}> Esqueceu a sua senha? </Text>
-      </TouchableOpacity>
+    </TouchableOpacity>
         <Button
 
          type={theme.buttons.buttonsTheme.primary}

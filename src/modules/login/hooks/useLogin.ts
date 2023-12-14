@@ -27,6 +27,9 @@ const handleGoToCreateUser =() =>{
   navigate(MenuUrl.CREATE_USER);
 
 }
+const handleGoToResetUser =() =>{
+  navigate(MenuUrl.RESET_USER);
+}
 const handleOnChangeEmail =(event:NativeSyntheticEvent<TextInputChangeEventData>) =>{
   setErrorMessage('');
 setEmail(event.nativeEvent.text);
@@ -44,6 +47,7 @@ handleOnPress,
 handleOnChangeEmail,
 handleOnChangeSenha,
 handleGoToCreateUser,
+handleGoToResetUser,
 
  }
 }
