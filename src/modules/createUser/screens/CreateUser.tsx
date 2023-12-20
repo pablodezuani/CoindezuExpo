@@ -3,13 +3,13 @@ import Input from "../../../shared/components/input/input";
 import text from "../../../shared/components/text/text";
 import Button from "../../../shared/components/button/button";
 import { theme } from "../../../shared/components/themes/theme";
-import { CreateUserContainer } from "../Styles/createUser.style";
+import { CreatUser, CreateUserContainer } from "../Styles/createUser.style";
 
 
 const CreateUser = () => {
 return (
-    <CreateUserContainer >
-      
+   
+   <CreatUser>
 <Input margin="36px 0px 8px 0px"
  placeholder="Digite Nome completo"
  textAlign="center" 
@@ -44,13 +44,13 @@ margin="8px 0px 8px 0px"
   
 />
 <Button
-  style={{ margin: 50 }}
+  style={{ margin: 100 }}
   type={theme.buttons.buttonsTheme.primary}
   title="Criar acesso"
 />
-
+</CreatUser>   
         
-</CreateUserContainer>
+
 )
 
 };

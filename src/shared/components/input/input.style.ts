@@ -11,13 +11,13 @@ secureTextEntry?: boolean;
 export const ContainerInput = styled.TextInput <ContainerInputProps>`
 width:100%;
 height: 48px;
-
 padding: 16px;
 background-color: ${theme.colors.neutralTheme.white};
 color: ${theme.colors.pinktheme.pink};
 border-radius: 24px;
-border-width: 2px;
-border-color: ${(props)=> props.iserror ? theme.colors.redtheme.rederro : theme.colors.pinktheme.pink};
+border-width: 0.3px;
+border-color: ${(props)=> props.iserror ? theme.colors.redtheme.rederro : theme.colors.graytheme.gray80};
+bor
 
 
 `;
