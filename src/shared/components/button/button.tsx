@@ -3,7 +3,6 @@ import { ActivityIndicatorButton, ButtonContainer, ButtonDisabled, ButtonSeconda
 import Text from "../text/text";
 import { theme } from "../themes/theme";
 import { textTypes } from "../text/textTypes";
-import LinearGradient from "react-native-linear-gradient";
 import { Styles } from "styled-components/native/dist/types";
 import React from "react";
 
@@ -60,11 +59,12 @@ interface ButtonProps extends TouchableOpacityProps {
             return (
                 <ButtonSecondary {...props} onPress={handleOnPress}>
 
-                    {renderText(theme.colors.pinktheme.pink)}
+                    {renderText(theme.colors.bluetheme.blue)}
                 </ButtonSecondary>
 
 
-            )
+            );
+            
     }
 
 };

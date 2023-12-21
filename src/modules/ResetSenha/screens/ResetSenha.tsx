@@ -6,6 +6,7 @@ import { theme } from "../../../shared/components/themes/theme";
 import { ContainerLogin, Imagelogo } from "../../login/styles/login.style";
 import { Imageres, Reset } from "../styles/stylesReset.styles";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { ButtonSecondary } from "../../../shared/components/button/button.style";
 
 const ResetSenha = () => {
 return (
@@ -23,16 +24,18 @@ return (
 
 <Button
   style={{ margin: 30 }}
-  type={theme.buttons.buttonsTheme.secondary}
-  title="Enviar link para login"
+  title="Enviar Link"
  
 />    
-<Text style={{fontSize:12,textAlign:"center"}}> ______________ OU ______________</Text>
+<View style={{flexDirection: 'row'}}>
+  <Text style={{fontSize:12,marginTop: 36,color:'#B1BBC2'}}>________________    </Text>
+  <Text style={{fontSize:12,marginTop: 41,color:'#B1BBC2'}}>OU</Text>
+  <Text style={{fontSize:12,marginTop: 36,color:'#B1BBC2'}}>    ________________</Text>
+</View>
 <TouchableOpacity>
-<Text style={{fontSize:12,textAlign:"center",marginTop:24}}>Criar nova conta</Text></TouchableOpacity>
+<Text style={{fontSize:18,textAlign:"center",marginTop:24,color: '#8C2A96'}}>Criar nova conta</Text></TouchableOpacity>
 
 </Reset>
-
 )
 
 };

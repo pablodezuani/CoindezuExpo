@@ -17,9 +17,6 @@ color: ${theme.colors.pinktheme.pink};
 border-radius: 24px;
 border-width: 0.3px;
 border-color: ${(props)=> props.iserror ? theme.colors.redtheme.rederro : theme.colors.graytheme.gray80};
-bor
-
-
 `;
 
 export const IconEye =styled(Icon)`

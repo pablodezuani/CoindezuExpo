@@ -12,6 +12,7 @@ import { NativeSyntheticEvent } from "react-native";
 import { TextInputChangeEventData } from "react-native";
 import { useLogin } from "../hooks/useLogin";
 import { pinktheme } from "../../../shared/components/themes/colors";
+import { Reset } from "../../ResetSenha/styles/stylesReset.styles";
 //import { bluetheme, redtheme } from "../../../shared/components/themes/colors";
 //import ButtonWithIcon from "../../../shared/components/button/botaorede";
 //import ConnectionAPI, { ConnectionAPIGet } from "../../../shared/components/functions/connection/connectionsAPI";
@@ -37,12 +38,10 @@ handleGoToResetUser,
   } = useLogin();
 return (
    <View>
+<Reset>
+  <View><Imagelogo  source={require('../../../assets/images/COINZU.png')}/></View>
+    
 
-    
-    <ContainerLogin>
-    <Imagelogo  source={require('../../../assets/images/COINZU.png')}/>
-    
-    
       <Input 
       value={email}
       errorMessage={errorMessage} 
@@ -97,7 +96,7 @@ return (
   
 </Text>
 </View>
- </ContainerLogin>
+ </Reset>
    </View>
    
 );
