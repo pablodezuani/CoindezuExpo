@@ -12,7 +12,6 @@ const ResetSenha = () => {
 return (
    
 <Reset>
-<Imageres source={require('../../../assets/images/resett.png')}/>
 <Text style={{fontSize:24,textAlign:"center",marginBottom:50}}> Problemas entrar? </Text>
 
 <Text style={{fontSize: 14, textAlign: "center", marginBottom: 16, color: "#B2B2B2"}}>Insira o seu nome de usuário ou email e enviaremos um link para você voltar a acessar a sua conta.</Text>
@@ -24,7 +23,7 @@ return (
 
 <Button
   style={{ margin: 30 }}
-  title="Enviar Link"
+  title="Enviar Linddk"
  
 />    
 <View style={{flexDirection: 'row'}}>

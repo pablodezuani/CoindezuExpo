@@ -10,8 +10,7 @@ padding: 24px;
 `;
  export const Imagelogo = styled.Image `
  width: 320px;
- height: 70px;
-margin-bottom:24px;
+ height: 210px;
 align-items: flex-start;
  `;
 

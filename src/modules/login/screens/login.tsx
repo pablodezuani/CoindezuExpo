@@ -38,9 +38,8 @@ handleGoToResetUser,
   } = useLogin();
 return (
    <View>
-<Reset>
-  <View><Imagelogo  source={require('../../../assets/images/COINZU.png')}/></View>
-    
+<ContainerLogin>
+ <Imagelogo  source={require('../../../assets/images/novo.png')}/>
 
       <Input 
       value={email}
@@ -96,7 +95,7 @@ return (
   
 </Text>
 </View>
- </Reset>
+ </ContainerLogin>
    </View>
    
 );
