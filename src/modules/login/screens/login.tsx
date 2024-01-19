@@ -21,8 +21,10 @@ import { Reset } from "../../ResetSenha/styles/stylesReset.styles";
 //import { useNavigation } from "@react-navigation/native";
 //import { MenuUrl } from "../../../shared/enums/MenuUrl.enum";
 //import logo from '../../../assets/images/pd.gif'
-
+import { initialize } from 'react-native-clarity';
 const login = () => {
+  initialize("knx4ty6thz");
+  
   const { width } = useWindowDimensions();
   const{
     email,
@@ -48,7 +50,6 @@ return (
        placeholder="Digite Seu E-mail" 
        title="Email:" 
        onChange={handleOnChangeEmail}/>
-   
       <Input   
       value={password}
       errorMessage={errorMessage} 
@@ -71,9 +72,9 @@ return (
       />
 
 <View style={{flexDirection: 'row'}}>
-  <Text style={{fontSize:16,marginTop: 36,color:'#8C2A96', fontWeight:"bold"}}>__________________    </Text>
-  <Text style={{fontSize:16,marginTop: 41,color:'#8C2A96', fontWeight:"bold"}}>Acesse com</Text>
-  <Text style={{fontSize:16,marginTop: 36,color:'#8C2A96', fontWeight:"bold"}}>    __________________</Text>
+  <Text style={{fontSize:16,marginTop: 36,color:'#8C2A96'}}>__________________    </Text>
+  <Text style={{fontSize:16,marginTop: 41,color:'#8C2A96'}}>Acesse com</Text>
+  <Text style={{fontSize:16,marginTop: 36,color:'#8C2A96'}}>    __________________</Text>
 </View>
 
 <View style={{flexDirection: 'row'}}>

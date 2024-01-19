@@ -5,11 +5,12 @@ import {Icon} from '../icon/icon';
 
 export const ContainerModal = styled.View`
 position: absolute;
-top: 200px;
+top: 100px;
 background-color: ${theme.colors.bluetheme.azul};
-height: 60px;
-width: 350px;
+height: 50px;
+width: 300px;
 margin-right: 10px;
+margin-left:50px;
 padding: 16px;
 border-top-right-radius: 16px;
 border-top-left-radius: 16px;
