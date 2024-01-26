@@ -30,13 +30,6 @@ return (
   title="Recuperar Acesso"
  
 />   
-<View style={{flexDirection: 'row'}}>
-  <Text style={{fontSize:12,marginTop: 36,color:'#B1BBC2'}}>________________    </Text>
-  <Text style={{fontSize:12,marginTop: 41,color:'#B1BBC2'}}>OU</Text>
-  <Text style={{fontSize:12,marginTop: 36,color:'#B1BBC2'}}>    ________________</Text>
-</View>
-<TouchableOpacity onPress={handleGoToCreateUser}>
-<Text style={{fontSize:18,textAlign:"center",marginTop:24,color: '#8C2A96'}}>Criar nova conta</Text></TouchableOpacity>
 
 </Reset>
 )

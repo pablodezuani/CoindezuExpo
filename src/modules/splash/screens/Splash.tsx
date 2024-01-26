@@ -15,12 +15,15 @@ const Splash = () => {
   
     useEffect(() => {
       const verifyLogin = async () => {
+        console.log("Antes da requisição");
         const returnUser = await request({
           url: URL_USER,
           method: MethodEnum.GET,
           saveGlobal: setUser,
         });
-  
+    
+        console.log("Depois da requisição", returnUser);
+    
         if (returnUser) {
           reset({
             index: 0,
@@ -33,9 +36,12 @@ const Splash = () => {
           });
         }
       };
-  
+    
+      console.log("Antes de verificar o login");
       verifyLogin();
+      console.log("Depois de verificar o login");
     }, []);
+    
   
     return (
       <ContanerSplash>
@@ -45,7 +51,3 @@ const Splash = () => {
   };
   
   export default Splash;
-// function useUserReducer(): { setUser: any; } {
-//   throw new Error("Function not implemented.");
-// }
-
