@@ -30,20 +30,18 @@ switch (method) {
     }
 
     static async connect <T> (url:string, method:MethodType,body?: unknown) : Promise <T>{
-
-return this.call <T>(url,method,body).catch((error)=>
-{
-if(error.response){
-switch (error.response) {
-    case 401:
-        case 403:
-    throw new Error('Sem permissão')
-    default:
-        throw new Error('Sem acesso a rede')
-}
-}
-throw new Error('Sem acesso a rede')
-});
+        return this.call<T>(url, method, body).catch((error) => {
+            if (error.response) {
+              const statusCode = error.response.status;
+              if (statusCode === 401 || statusCode === 403) {
+                throw new Error('Sem permissão');
+              } else {
+                throw new Error(`Erro de rede: ${statusCode}`);
+              }
+            }
+            throw new Error('Sem acesso à rede');
+          });
+          
 
 }
 

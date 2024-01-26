@@ -57,9 +57,10 @@ return (
          loading ={loading}
         margin="16px"
          title="Acessar" 
+       onPress={handleOnPress}
       
-       onPress={handleOnPress} 
       />
+       
 <View style={{flexDirection: 'row'}}>
   <Text style={{fontSize:16,marginTop: 36,color:'#8C2A96'}}>__________________    </Text>
   <Text style={{fontSize:16,marginTop: 41,color:'#8C2A96'}}>Acesse com</Text>
