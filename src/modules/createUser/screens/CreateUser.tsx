@@ -8,7 +8,7 @@ import { useCreateUser } from "../hooks/useCreateUser";
 
 const CreateUser = () => {
 
-  const { createUser, loading, handleOnChangeInput, handleCreateUser } = useCreateUser();
+  const { createUser, disabled,loading, handleOnChangeInput, handleCreateUser } = useCreateUser();
 
 
 
@@ -69,10 +69,8 @@ onChange={(event) => handleOnChangeInput(event,'phone')}
           title="Confirmar Senha:"
         />
   <Button
-  onPress={() => {
-    console.log("Botão 'Criar acesso' pressionado");
-    handleCreateUser();
-  }}
+  disabled={disabled}
+  onPress={handleCreateUser}
   loading={loading}
   style={{ margin: 16 }}
   type={theme.buttons.buttonsTheme.primary}

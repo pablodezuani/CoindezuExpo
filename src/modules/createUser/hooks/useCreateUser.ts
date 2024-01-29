@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CreateUserType } from "../../../shared/types/createUserType";
 import { TextInputChangeEventData } from "react-native/Libraries/Components/TextInput/TextInput";
 import { NativeSyntheticEvent } from "react-native";
@@ -7,10 +7,13 @@ import { MethodEnum } from "../../../shared/enums/methods.enum";
 import { useRequest } from "../../../shared/hooks/useRequest";
 import { NavigationProp, ParamListBase, useNavigation } from "@react-navigation/native";
 import { MenuUrl } from "../../../shared/enums/MenuUrl.enum";
+import { insertMaskInCpf } from "../../../shared/components/functions/cpf";
+import { insertMaskInPhone } from "../../../shared/components/functions/connection/phone";
 
 export const useCreateUser = () =>{
   const{reset} =useNavigation <NavigationProp<ParamListBase>>();
   const {request, loading} = useRequest();
+  const [disabled, setDisabled] = useState<boolean>(true);
 const [createUser, setCreateUser] =useState<CreateUserType>(
     {
         confirmPassword:'',
@@ -19,11 +22,26 @@ const [createUser, setCreateUser] =useState<CreateUserType>(
         name:'',
         password:'',
         phone:'',
-
-
         
     }
 );
+
+useEffect(() => {
+  if (
+    createUser.name !== '' &&
+    //validatePhone(createUser.phone) &&
+    //validateEmail(createUser.email) &&
+    //validateCpf(createUser.cpf) &&
+    createUser.password !== '' &&
+    createUser.password === createUser.confirmPassword
+  ) {
+    setDisabled(false);
+  } else {
+    setDisabled(true);
+  }
+}, [createUser]);
+
+
 
 const handleCreateUser = async () => {
   try {
@@ -50,16 +68,32 @@ const handleOnChangeInput = (
   event: NativeSyntheticEvent<TextInputChangeEventData>,
   name: string,
 ) => {
-  const newText = event.nativeEvent ? event.nativeEvent.text : ''; // Verifica se event.nativeEvent existe
+  let text = event.nativeEvent.text;
+  switch (name) {
+    case 'cpf':
+      text = insertMaskInCpf(text)
+      break;
+  
+      case 'phone':
+      text = insertMaskInPhone(text)
+      break;
+
+    default:
+      text = event.nativeEvent.text;
+      break;
+  }
+
+  
   setCreateUser((currentCreateUser) => ({
     ...currentCreateUser,
-    [name]: newText,
+    [name]: text,
   }));
 };
 
   return {
     createUser,
     loading,
+    disabled,
     handleOnChangeInput,
     handleCreateUser,
   };
