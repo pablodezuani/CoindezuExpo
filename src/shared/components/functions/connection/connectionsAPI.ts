@@ -29,22 +29,23 @@ switch (method) {
 
     }
 
-    static async connect <T> (url:string, method:MethodType,body?: unknown) : Promise <T>{
+    static async connect<T>(url: string, method: MethodType, body?: unknown): Promise<T> {
         return this.call<T>(url, method, body).catch((error) => {
             if (error.response) {
-              const statusCode = error.response.status;
-              if (statusCode === 401 || statusCode === 403) {
-                throw new Error('Sem permissão');
-              } else {
-                throw new Error(`Erro de rede: ${statusCode}`);
-              }
+                const statusCode = error.response.status;
+    
+                switch (statusCode) {
+                    case 401:
+                    case 403:
+                        throw new Error('Sem permissão');
+                    default:
+                        throw new Error(`Sem conexão com o backend`);
+                }
             }
             throw new Error('Sem acesso à rede');
-          });
-          
-
-}
-
+        });
+    }
+    
 } 
 export const ConnectionAPIGet = async<T> (url:string): Promise<T> =>{
     return ConnectionAPI.connect(url,MethodEnum.GET);

@@ -12,7 +12,7 @@ return(
 <NavigationContainer>
     <Stack.Navigator>
     <Stack.Screen name={MenuUrl.SPLASH} component={Splash} options={{headerShown: false}}/>
-      <Stack.Screen name={MenuUrl.Login} component={Login} options={{headerShown: false}}/>
+      <Stack.Screen name={MenuUrl.LOGIN} component={Login} options={{headerShown: false}}/>
 <Stack.Screen name={MenuUrl.CREATE_USER} component={CreateUser} options={{ title: 'Criar Usuario' }} />
 <Stack.Screen name={MenuUrl.RESET_USER} component={ResetSenha} options={{ title: 'Reset Senha' }} />
 

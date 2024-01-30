@@ -15,7 +15,7 @@ import { pinktheme } from "../../../shared/components/themes/colors";
 import { Reset } from "../../ResetSenha/styles/stylesReset.styles";
 
 
-const login = () => {
+const Login = () => {
   const{
     email,
     password,
@@ -91,4 +91,4 @@ return (
    
 );
 };
-export default login;
+export default Login;

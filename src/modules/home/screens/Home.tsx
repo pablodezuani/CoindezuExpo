@@ -2,7 +2,7 @@ import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 
-const userReducer  =() => {
+const UserReducer  =() => {
 
 return(
 
@@ -13,4 +13,4 @@ return(
 
 )
 }
-export default userReducer;
+export default UserReducer;

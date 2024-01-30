@@ -7,47 +7,58 @@ import { MethodEnum } from "../../../shared/enums/methods.enum";
 import { useUserReducer } from "../../../store/reducers/userReducers/useUserReducer";
 import { NavigationProp, ParamListBase, useNavigation } from "@react-navigation/native";
 import { MenuUrl } from "../../../shared/enums/MenuUrl.enum";
+import { getAuthorizationToken } from "../../../shared/components/functions/connection/auth";
+import { UserType } from "../../../shared/types/userType";
+
+const TIME_SLEEP = 5000;
 
 const Splash = () => {
-    const { reset } = useNavigation<NavigationProp<ParamListBase>>();
-    const { request } = useRequest();
-    const { setUser } = useUserReducer();
-  
-    useEffect(() => {
-      const verifyLogin = async () => {
-        console.log("Antes da requisição");
-        const returnUser = await request({
+  const { reset } = useNavigation<NavigationProp<ParamListBase>>();
+  const { request } = useRequest();
+  const { setUser } = useUserReducer();
+
+  useEffect(() => {
+    const findUser = async (): Promise<undefined | UserType> => {
+      let returnUser;
+      const token = await getAuthorizationToken();
+      if (token) {
+        returnUser = await request<UserType>({
           url: URL_USER,
           method: MethodEnum.GET,
           saveGlobal: setUser,
         });
-    
-        console.log("Depois da requisição", returnUser);
-    
-        if (returnUser) {
-          reset({
-            index: 0,
-            routes: [{ name: MenuUrl.HOME }],
-          });
-        } else {
-          reset({
-            index: 0,
-            routes: [{ name: MenuUrl.Login }],
-          });
-        }
-      };
-    
-      console.log("Antes de verificar o login");
-      verifyLogin();
-      console.log("Depois de verificar o login");
-    }, []);
-    
-  
-    return (
-      <ContanerSplash>
-        <ImagelogoSplash resizeMode="contain" source={require('../../../assets/images/logo.png')} />
-      </ContanerSplash>
-    );
-  };
-  
-  export default Splash;
+      }
+
+      return returnUser;
+    };
+
+    const verifyLogin = async () => {
+      const [returnUser] = await Promise.all([
+        findUser(),
+        new Promise<void>((r) => setTimeout(r, TIME_SLEEP)),
+      ]);
+
+      if (returnUser) {
+        reset({
+          index: 0,
+          routes: [{ name: MenuUrl.HOME }],
+        });
+      } else {
+        reset({
+          index: 0,
+          routes: [{ name: MenuUrl.LOGIN }],
+        });
+      }
+    };
+
+    verifyLogin();
+  }, []);
+
+  return (
+    <ContanerSplash>
+      <ImagelogoSplash resizeMode="contain" source={require('../../../assets/images/logo.png')} />
+    </ContanerSplash>
+  );
+};
+
+export default Splash;

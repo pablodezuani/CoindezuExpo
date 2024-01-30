@@ -1,5 +1,5 @@
 export enum MenuUrl {
-Login = 'Login',
+LOGIN = 'Login',
 HOME = 'Home',
 SPLASH ='splach',
 CREATE_USER ='CreateUser',
