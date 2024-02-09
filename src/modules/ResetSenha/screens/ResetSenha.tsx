@@ -16,7 +16,7 @@ const ResetSenha = () => {
 return (
    
 <Reset>
-<Text style={{fontSize:20,textAlign:"center",marginBottom:50}}> Problemas entrar? </Text>
+<Text style={{fontSize:20,textAlign:"center",marginBottom:50}}> Problemas de Acesso? </Text>
 
 <Text style={{fontSize: 14, textAlign: "center", marginBottom: 16, color: "#B2B2B2"}}>Digite seu nome de usuário ou endereço de e-mail. Enviaremos um link para que você possa recuperar o acesso à sua conta.</Text>
 
