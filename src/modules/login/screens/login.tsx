@@ -13,7 +13,7 @@ import { TextInputChangeEventData } from "react-native";
 import { useLogin } from "../hooks/useLogin";
 import { pinktheme } from "../../../shared/components/themes/colors";
 import { Reset } from "../../ResetSenha/styles/stylesReset.styles";
-
+import { AntDesign } from '@expo/vector-icons';
 
 const Login = () => {
   const{
@@ -69,9 +69,7 @@ return (
 
 <View style={{flexDirection: 'row'}}>
 
-  <Icon name="instagram"  size={32} color="#FF007f" style={{marginRight: 36, marginTop: 36}} />
-  <Icon name="facebook"  size={32} color="#3b5998" style={{marginRight: 36, marginTop: 36}} />
-  <Icon name="google"  size={32} color="#db4a39" style={{marginTop: 36}} />
+<AntDesign name="google" size={24} color="black" />
 </View>
 
 
