@@ -10,7 +10,7 @@ export default function Balance({saldo,gastos}) {
   <View style={styles.item}>
     
     <Text style={styles.itemTitle}>Saldo</Text>
-    <TouchableOpacity style={styles.container} onPress={() => setShowValue(!showValue)}>
+    <TouchableOpacity style={styles.balance} onPress={() => setShowValue(!showValue)}>
     <Text style={styles.currencySymbol}>R$</Text>
     
       <View style={styles.content}>
@@ -27,7 +27,7 @@ export default function Balance({saldo,gastos}) {
     <Text style={styles.itemTitle}>Gastos</Text>
     <View style={styles.content}>
       <Text style={styles.currencySymbol}>R$</Text>
-      <TouchableOpacity style={styles.container} onPress={() => setShowgasto(!showgasto)}>
+      <TouchableOpacity style={styles.gastos} onPress={() => setShowgasto(!showgasto)}>
         <View style={styles.content}>
           {showgasto ? (
             <Text style={styles.gastos}>{gastos}</Text>
@@ -69,7 +69,6 @@ itemTitle:{
 },
 content:{
 flexDirection:'row',
-
 alignItems:"center"
 },
 
@@ -88,8 +87,7 @@ gastos:{
     color:'#e74c3c',
 },
 ocultar:{
-marginTop: 6,
-width:80,
+width:54,
 height:20,
 backgroundColor:'#DADADA',
 borderRadius:8,
