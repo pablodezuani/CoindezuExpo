@@ -7,7 +7,7 @@ export default function Actions() {
    <ScrollView style={styles.container} horizontal ={true} showsHorizontalScrollIndicator={false}>
  <TouchableOpacity style={styles.actionButton}>
 <View style={styles.ButtonArea} >
-<AntDesign name="plussquare" size={24} color="black" />
+<AntDesign name="plussquare" size={24} color="#8C2A96" />
 </View>
 <Text style={styles.buttonlabel}>Entradas</Text>
 
@@ -15,7 +15,7 @@ export default function Actions() {
 
  <TouchableOpacity style={styles.actionButton}>
 <View style={styles.ButtonArea} >
-<AntDesign name="barcode" size={24} color="black" />
+<AntDesign name="barcode" size={24} color="#8C2A96" />
 </View>
 <Text style={styles.buttonlabel}>Boleto</Text>
 
@@ -23,7 +23,7 @@ export default function Actions() {
 
  <TouchableOpacity style={styles.actionButton}>
 <View style={styles.ButtonArea} >
-<AntDesign name="shoppingcart" size={24} color="black" />
+<AntDesign name="shoppingcart" size={24} color="#8C2A96" />
 </View>
 <Text style={styles.buttonlabel}>Compras</Text>
 
@@ -31,7 +31,7 @@ export default function Actions() {
 
  <TouchableOpacity style={styles.actionButton}>
 <View style={styles.ButtonArea} >
-<AntDesign name="tagso" size={24} color="black" />
+<AntDesign name="tagso" size={24} color="#8C2A96" />
 </View>
 <Text style={styles.buttonlabel}>Pix</Text>
 
@@ -39,7 +39,7 @@ export default function Actions() {
 
  <TouchableOpacity style={styles.actionButton}>
 <View style={styles.ButtonArea} >
-<AntDesign name="tagso" size={24} color="black" />
+<AntDesign name="tagso" size={24} color="#8C2A96" />
 </View>
 <Text style={styles.buttonlabel}>Carteira</Text>
 
@@ -72,7 +72,7 @@ actionButton:{
 },
 
 ButtonArea:{
-   backgroundColor:'#DADADA',
+   backgroundColor:'#C1F4F8',
    height:60,
    width:60,
    borderRadius:30,

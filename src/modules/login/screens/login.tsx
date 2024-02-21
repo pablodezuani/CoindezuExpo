@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, TouchableOpacity, View, useWindowDimensions } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, View, useWindowDimensions ,StyleSheet} from "react-native";
 import { ContainerLogin, Imagelogo } from "../styles/login.style";
 import Input from "../../../shared/components/input/input";
 import Button from "../../../shared/components/button/button";
@@ -14,6 +14,8 @@ import { useLogin } from "../hooks/useLogin";
 import { pinktheme } from "../../../shared/components/themes/colors";
 import { Reset } from "../../ResetSenha/styles/stylesReset.styles";
 import { AntDesign } from '@expo/vector-icons';
+
+
 
 const Login = () => {
   const{
@@ -68,8 +70,10 @@ return (
 </View>
 
 <View style={{flexDirection: 'row'}}>
-
-<AntDesign name="google" size={24} color="black" />
+<TouchableOpacity style={styles.botao}>
+      <AntDesign name="google" size={24} color="#db4a39" style={{ marginRight: 10 }} />
+      <Text style={{ fontSize: 16 ,color:'#8C2A96' }}>Continuar com Google</Text>
+    </TouchableOpacity>
 </View>
 
 
@@ -77,7 +81,7 @@ return (
 <View>
 <Text style = {{marginTop: 50}}>
   Não possui acesso ?{' '}
-  <TouchableOpacity onPress={handleGoToCreateUser}>
+  <TouchableOpacity  onPress={handleGoToCreateUser}>
   <Text style={{color: 'orange', textDecorationLine: 'underline'}}>
   Cadastre-se
   </Text></TouchableOpacity>
@@ -90,3 +94,24 @@ return (
 );
 };
 export default Login;
+
+
+
+const styles = StyleSheet.create({
+
+
+botao:{
+
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: 'transparent', // Defina a cor de fundo do botão aqui
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 30,
+        marginTop:16,
+        borderWidth: 1, // Defina a largura da borda aqui
+        borderColor: '#8C2A96', // Defina a cor da borda do botão aqui
+
+}
+
+})

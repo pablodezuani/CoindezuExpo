@@ -28,12 +28,20 @@ const list =[
     date :'17/20/2054',
     type: 1 // entrada
   },
+  {
+    id:4,
+    label:'pix',
+    value :'5.303,90',
+    date :'17/20/2054',
+    type: 1 // entrada
+  },
+  
 ]
 
 export default function Home() {
   return (
     <View style={styles.container}>
-        <Header name="Pablo Teixeira Dezuani"/>
+        <Header name="Pablo"/>
      <Balance saldo="5.514.61" gastos="524,25"/>
      <Actions/>
     <Text style={styles.titulo}> Ultimas movimentações </Text>

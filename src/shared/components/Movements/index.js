@@ -1,5 +1,6 @@
 import { View ,Text, StyleSheet , TouchableOpacity} from 'react-native';
 import React, { useState }  from 'react';
+import { Modalize } from 'react-native-modalize';
 
 export default function Movements({dados}) {
 const [showValue, setShowValue] = useState(false);
@@ -51,7 +52,7 @@ marginTop:2,
 
         date:{
 
-            color:'#DADADA',
+            color:'#7C7C7C',
             fontWeight:'bold',
         },
         label:{
