@@ -28,7 +28,7 @@ handleOnChangeEmail,
 handleOnChangeSenha,
 handleGoToCreateUser,
 handleGoToResetUser,
-
+handleGoToHome,
   } = useLogin();
 return (
    <View>
@@ -59,7 +59,7 @@ return (
          loading ={loading}
         margin="16px"
          title="Acessar" 
-       onPress={handleOnPress}
+       onPress={handleGoToHome}// mudar apos o termino 
       
       />
        

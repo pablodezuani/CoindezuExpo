@@ -20,9 +20,18 @@ const CreateUser = () => {
   value={createUser.name}
   onChange={(event) => handleOnChangeInput(event, 'name')}
   margin="30px 0px 8px 0px"
-  placeholder="Digite Nome completo"
+  placeholder="Primeiro Nome"
   textAlign="center"
-  title="Nome completo:"
+  title=""
+/>
+
+<Input
+  value={createUser.name}
+  onChange={(event) => handleOnChangeInput(event, 'name')}
+  margin="30px 0px 8px 0px"
+  placeholder="Ultimo nome "
+  textAlign="center"
+  title=""
 />
 
 

@@ -20,8 +20,11 @@ export default function Balance({saldo,gastos}) {
           <View style={styles.ocultar}></View>
         )}
       </View>
+  
     </TouchableOpacity>
+
   </View>
+  
 
   <View style={styles.item}>
     <Text style={styles.itemTitle}>Gastos</Text>

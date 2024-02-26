@@ -30,6 +30,10 @@ const handleGoToCreateUser =() =>{
 const handleGoToResetUser =() =>{
   navigate(MenuUrl.RESET_USER);
 }
+
+const handleGoToHome =() =>{
+  navigate(MenuUrl.HOME);
+}
 const handleOnChangeEmail =(event:NativeSyntheticEvent<TextInputChangeEventData>) =>{
   setErrorMessage('');
 setEmail(event.nativeEvent.text);
@@ -37,6 +41,10 @@ setEmail(event.nativeEvent.text);
 const handleOnChangeSenha =(event:NativeSyntheticEvent<TextInputChangeEventData>) =>{
   setErrorMessage('');
   setPassword(event.nativeEvent.text);
+};
+const handleOnChangetoHome =(event:NativeSyntheticEvent<TextInputChangeEventData>) =>{
+  setErrorMessage('');
+setEmail(event.nativeEvent.text);
 };
  return{
     email,
@@ -48,6 +56,7 @@ handleOnChangeEmail,
 handleOnChangeSenha,
 handleGoToCreateUser,
 handleGoToResetUser,
-
+handleGoToHome,
+handleOnChangetoHome,
  }
 }

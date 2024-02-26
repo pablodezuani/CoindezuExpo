@@ -16,3 +16,14 @@ justify-content: center;
 align-items: center;
 padding: 20px;
 `;
+
+
+export const inputnome = styled.View`
+  height: 100%;
+  width: 100%;
+  background-color: #edfefe; 
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: row; /* Adicionando esta linha */
+`;

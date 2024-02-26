@@ -9,7 +9,6 @@ secureTextEntry?: boolean;
 
 }
 export const ContainerInput = styled.TextInput <ContainerInputProps>`
-width:100%;
 height: 48px;
 padding: 16px;
 background-color: ${theme.colors.neutralTheme.white};
