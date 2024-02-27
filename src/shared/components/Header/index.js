@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, StatusBar, TouchableOpacity, Modal } from "react-native";
+import { View, StyleSheet, Text, StatusBar, TouchableOpacity, Modal, Image } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import { Camera } from 'expo-camera';
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
 
 export default function Header({ name }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [hasPermission, setHasPermission] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const openModal = () => {
     setModalVisible(true);
@@ -18,20 +17,20 @@ export default function Header({ name }) {
     setModalVisible(false);
   };
 
-  const getCameraPermission = async () => {
-    const { status } = await Camera.requestPermissionsAsync();
-    setHasPermission(status === 'granted');
-  };
-
   const handleOpenCamera = async () => {
-    await getCameraPermission();
-
-    if (!hasPermission) {
-      alert('Permissão para acessar a câmera é necessária!');
+    const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+    if (permissionResult.granted === false) {
+      alert("A permissão para acessar a câmera é necessária!");
       return;
     }
-
-    // Implemente aqui a lógica para abrir a câmera
+    
+    const result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    });
+    
+    if (!result.cancelled) {
+      setSelectedImage(result.uri);
+    }
   };
 
   const handleOpenGallery = async () => {
@@ -44,7 +43,7 @@ export default function Header({ name }) {
     const result = await ImagePicker.launchImageLibraryAsync();
     
     if (!result.cancelled) {
-      console.log(result.uri); // Aqui você pode manipular a imagem selecionada
+      setSelectedImage(result.uri);
     }
   };
 
@@ -52,7 +51,11 @@ export default function Header({ name }) {
     <View style={styles.container}>
       <View style={styles.content}>
         <TouchableOpacity activeOpacity={0.9} style={styles.buttonUser} onPress={openModal}>
-          <Feather name="user" size={27} color="black" />
+          {selectedImage ? (
+            <Image source={{ uri: selectedImage }} style={styles.userImage} />
+          ) : (
+            <Feather name="user" size={27} color="black" />
+          )}
         </TouchableOpacity>
         <Text style={styles.username}>{name}</Text>
       </View>
@@ -74,7 +77,7 @@ export default function Header({ name }) {
               <Feather name="image" size={20} color="#4a90e2" />
               <Text style={styles.modalOptionText}>Escolher Foto</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.cancelButton} onPress={closeModal}>
+            <TouchableOpacity style={styles.cancelButton} onPress={() => { closeModal(); }}>
               <Text style={styles.cancelButtonText}>Cancelar</Text>
             </TouchableOpacity>
           </View>
@@ -83,69 +86,68 @@ export default function Header({ name }) {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#50E0EB',
-    paddingTop: statusBarHeight,
-    flexDirection: 'row',
-    paddingStart: 16,
-    paddingEnd: 16,
-    paddingBottom: 44,
-  },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  username: {
-    fontSize: 14,
-    color: '#000',
-    fontWeight: 'bold'
-  },
-  buttonUser: {
-    width: 44,
-    height: 44,
-    backgroundColor: 'rgba(255,255,255,0.5)',
-    justifyContent: "center",
-    alignItems: 'center',
-    borderRadius: 44 / 2,
-  },
-  modalContainer: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    alignItems:'flex-start',
-    marginLeft:70,
-    marginTop:100,
-    justifyContent:'flex-start',
-  },
-  modalContent: {
-    backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  modalTitle: {
-    fontSize: 18,
-    marginBottom: 20,
-    fontWeight: 'bold',
-  },
-  modalOption: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 15,
-  },
-  modalOptionText: {
-    marginLeft: 10,
-    fontSize: 16,
-    color: '#4a90e2',
-  },
-  cancelButton: {
-    marginTop: 10,
-  },
-  cancelButtonText: {
-    fontSize: 16,
-    color: 'red',
-  },
-});
+    container: {
+      backgroundColor: '#50E0EB',
+      paddingTop: statusBarHeight,
+      flexDirection: 'row',
+      paddingStart: 16,
+      paddingEnd: 16,
+      paddingBottom: 44,
+    },
+    content: {
+      flex: 1,
+      alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'space-between'
+    },
+    username: {
+      fontSize: 14,
+      color: '#000',
+      fontWeight: 'bold'
+    },
+    buttonUser: {
+      width: 44,
+      height: 44,
+      backgroundColor: 'rgba(255,255,255,0.5)',
+      justifyContent: "center",
+      alignItems: 'center',
+      borderRadius: 44 / 2,
+    },
+    modalContainer: {
+      flex: 1,
+      backgroundColor: 'transparent',
+      alignItems:'flex-start',
+  
+      justifyContent:'flex-end',
+    },
+    modalContent: {
+      backgroundColor: 'white',
+      width:400,
+      padding: 20,
+      borderRadius: 10,
+      alignItems: 'center',
+    },
+    modalTitle: {
+      fontSize: 18,
+      marginBottom: 20,
+      fontWeight: 'bold',
+    },
+    modalOption: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 15,
+    },
+    modalOptionText: {
+      marginLeft: 10,
+      fontSize: 16,
+      color: '#4a90e2',
+    },
+    cancelButton: {
+      marginTop: 10,
+    },
+    cancelButtonText: {
+      fontSize: 16,
+      color: 'red',
+    },
+  });

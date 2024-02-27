@@ -10,7 +10,7 @@ export default function Balance({saldo,gastos}) {
   <View style={styles.item}>
     
     <Text style={styles.itemTitle}>Saldo</Text>
-    <TouchableOpacity style={styles.balance} onPress={() => setShowValue(!showValue)}>
+    <TouchableOpacity style={styles.content} onPress={() => setShowValue(!showValue)}>
     <Text style={styles.currencySymbol}>R$</Text>
     
       <View style={styles.content}>
