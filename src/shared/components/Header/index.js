@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, StatusBar, TouchableOpacity, Modal, Image } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-
+import Input from "../../../shared/components/input/input";
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
 
 export default function Header({ name }) {

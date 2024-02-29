@@ -14,14 +14,7 @@ const CreateUser = () => {
     <CreatUser>
  
         <View style={styles.inputContainer}>
-          <Input
-            value={createUser.name}
-            onChange={(event) => handleOnChangeInput(event, 'name')}
-            margin="8px 4px 8px 0px"
-            placeholder="Primeiro Nome"
-            textAlign="center"
-            title=""
-          />
+          
          <Input
             value={createUser.lastName}
             onChange={(event) => handleOnChangeInput(event, 'lastName')}
