@@ -5,7 +5,7 @@ interface ContainerTextProps{
 color? : string;
 fontsize: string;
 CustomMargin?:string;
-fontFamily: 'Poppins-Bold' |'Poppins-Light' |'Poppins-Regular';
+
 
 }
 export const ContainerText  = styled.Text<ContainerTextProps>`
