@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TouchableOpacity, View, Text, StyleSheet, ScrollView, Modal, TouchableWithoutFeedback } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { TextInput } from 'react-native';
 
 import Input from "../../../shared/components/input/input";
 import Button from "../button/button";
@@ -75,34 +76,25 @@ export default function Actions() {
               </TouchableOpacity>
               <Text style={styles.Titlehome}>Entrada</Text>
               <Input
-         
-       
+               style={{ height: 50, width: 200, borderColor: 'gray', borderWidth: 1, borderRadius: 5, padding: 5 }}
          margin="4px 0px 4px 4px"
          placeholder="Nome da entrada"
          textAlign="center"
          title="Nome da entrada"
        />
-             
              <Input
-         
-
+             style={{ height: 50, width: 200, borderColor: 'gray', borderWidth: 1, borderRadius: 5, padding: 5 }}
             margin="4px 0px 4px 4px"
             placeholder="Data da Entrada"
             textAlign="center"
             title="Data da entrada"
           />
- <Input
-         
-        
-         margin="4px 0px 4px 4px"
-         placeholder="Valor"
-         textAlign="center"
-         title="Valor"
-       />
-    
+ 
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',width: 200 }}>
+      <Button title="Lançar" />
+    </View>
 
-    <Button
-    title="nome"/>
+
 
           
             </View>
@@ -257,5 +249,10 @@ const styles = StyleSheet.create({
     marginTop:16,
     fontSize:18,
   },
+
+botao:{
+
+},
+
 });
 

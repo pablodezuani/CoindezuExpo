@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "my-app",
-    "slug": "coinzu",
+    "slug": "coindezu",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -30,7 +30,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "bf04cee4-fba3-4346-8298-af1817a1d230"
+        "projectId": "15c47dcb-7dda-4528-9fa2-086f03c4b31c"
       }
     },
     "owner": "pdezuani"
