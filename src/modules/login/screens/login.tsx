@@ -29,6 +29,7 @@ handleOnChangeSenha,
 handleGoToCreateUser,
 handleGoToResetUser,
 handleGoToHome,
+
   } = useLogin();
 return (
    <View>
@@ -79,10 +80,10 @@ return (
 
 
 <View>
-<Text style = {{marginTop: 50}}>
+<Text style = {{color:'orange',marginTop: 50}}>
   Não possui acesso ?{' '}
   <TouchableOpacity  onPress={handleGoToCreateUser}>
-  <Text style={{color: 'orange', textDecorationLine: 'underline'}}>
+  <Text style={{color: 'orange', textDecorationLine: 'underline',marginTop:33}}>
   Cadastre-se
   </Text></TouchableOpacity>
   

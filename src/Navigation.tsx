@@ -6,6 +6,7 @@ import { MenuUrl } from "./shared/enums/MenuUrl.enum";
 import Splash from "./modules/splash";
 import CreateUser from "./modules/createUser";
 import ResetSenha from "./modules/ResetSenha";
+import caixinha from "./modules/caixinha";
 const Stack = createNativeStackNavigator();
 const Navigation = ()=> {
 return(
@@ -13,10 +14,10 @@ return(
     <Stack.Navigator>
     <Stack.Screen name={MenuUrl.SPLASH} component={Splash} options={{headerShown: false}}/>
       <Stack.Screen name={MenuUrl.LOGIN} component={Login} options={{headerShown: false}}/>
+      <Stack.Screen name={MenuUrl.CAIXINHA} component={caixinha} options={{ title: 'Caixinha' }} />
 <Stack.Screen name={MenuUrl.CREATE_USER} component={CreateUser} options={{ title: 'Criar Usuario' }} />
 <Stack.Screen name={MenuUrl.RESET_USER} component={ResetSenha} options={{ title: 'Reset Senha' }} />
-
-      <Stack.Screen name={MenuUrl.HOME} component={Home}   options={{title: 'Home'}}/>
+ <Stack.Screen name={MenuUrl.HOME} component={Home}   options={{title: 'Home'}}/>
     </Stack.Navigator>
   </NavigationContainer>
 );

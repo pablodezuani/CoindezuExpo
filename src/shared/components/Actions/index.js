@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import { TouchableOpacity, View, Text, StyleSheet, ScrollView, Modal, TouchableWithoutFeedback } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { TextInput } from 'react-native';
-
 import Input from "../../../shared/components/input/input";
+import RNPickerSelect from 'react-native-picker-select';
 import Button from "../button/button";
+
+
+
 export default function Actions() {
+
   // Estados para controlar a visibilidade de cada modal
   const [modalVisibleEntradas, setModalVisibleEntradas] = useState(false);
   const [modalVisibleBoleto, setModalVisibleBoleto] = useState(false);
   const [modalVisibleCompras, setModalVisibleCompras] = useState(false);
   const [modalVisiblePix, setModalVisiblePix] = useState(false);
-  const [modalVisibleCarteira, setModalVisibleCarteira] = useState(false);
   const [modalVisibleCartao, setModalVisibleCartao] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const handleGoToCaixinha = () => {
+  }
+
 
   return (
     <ScrollView style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -23,6 +29,13 @@ export default function Actions() {
           <AntDesign name="plussquare" size={24} color="#8C2A96" />
         </View>
         <Text style={styles.buttonlabel}>Entradas</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.actionButton} onPress={handleGoToCaixinha}>
+        <View style={styles.ButtonArea}>
+          <AntDesign name="piechart" size={24} color="#8C2A96" />
+        </View>
+        <Text style={styles.buttonlabel}>Caixinha</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.actionButton} onPress={() => setModalVisibleBoleto(true)}>
@@ -46,13 +59,6 @@ export default function Actions() {
         <Text style={styles.buttonlabel}>Pix</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.actionButton} onPress={() => setModalVisibleCarteira(true)}>
-        <View style={styles.ButtonArea}>
-          <AntDesign name="tagso" size={24} color="#8C2A96" />
-        </View>
-        <Text style={styles.buttonlabel}>Carteira</Text>
-      </TouchableOpacity>
-
       <TouchableOpacity style={styles.actionButton} onPress={() => setModalVisibleCartao(true)}>
         <View style={styles.ButtonArea}>
           <AntDesign name="creditcard" size={24} color="black" />
@@ -62,45 +68,48 @@ export default function Actions() {
 
       {/* Modal para Entradas */}
       <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisibleEntradas}
-        onRequestClose={() => setModalVisibleEntradas(false)}
-      >
-        <TouchableWithoutFeedback>
-          <View style={styles.modalBackground}>
+      animationType="slide"
+      transparent={true}
+      visible={modalVisibleEntradas}
+      onRequestClose={() => setModalVisibleEntradas(false)}
+    >
+      <TouchableWithoutFeedback onPress={() => setModalVisibleEntradas(false)}>
+        <View style={styles.modalBackground}>
+          <TouchableWithoutFeedback>
             <View style={styles.modalContent}>
-              
               <TouchableOpacity onPress={() => setModalVisibleEntradas(false)} style={styles.closeIcon}>
                 <Feather name="x" size={24} color="black" />
               </TouchableOpacity>
-              <Text style={styles.Titlehome}>Entrada</Text>
-              <Input
-               style={{ height: 50, width: 200, borderColor: 'gray', borderWidth: 1, borderRadius: 5, padding: 5 }}
-         margin="4px 0px 4px 4px"
-         placeholder="Nome da entrada"
-         textAlign="center"
-         title="Nome da entrada"
-       />
-             <Input
-             style={{ height: 50, width: 200, borderColor: 'gray', borderWidth: 1, borderRadius: 5, padding: 5 }}
-            margin="4px 0px 4px 4px"
-            placeholder="Data da Entrada"
-            textAlign="center"
-            title="Data da entrada"
-          />
- 
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',width: 200 }}>
-      <Button title="Lançar" />
-    </View>
+              <Text style={styles.Titlehome}>Adicione a Sua Entrada</Text>
+<Text
+style={styles.Select}
+>Tipo de entrada</Text>
+              <RNPickerSelect
+placeholder={{ label: 'Tipo de entrada', value: null }}
+  onValueChange={(value) => console.log(value)}
+  items={[
+    { label: 'Salario', value: 'Salario' },
+    { label: 'Deposito', value: 'Deposito' },
+    { label: 'Outros ', value: 'Outros' },
+  ]}
+/>
+ <Input
+                style={{ height: 50, width: 200, borderColor: 'gray', borderWidth: 1, borderRadius: 5, padding: 5 }}
+                margin="4px 0px 4px 4px"
+                placeholder="Nome da entrada"
+                textAlign="center"
+                title="Nome da entrada"
+              />
 
-
-
-          
+            
+              <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: 200 }}>
+                <Button title="Lançar" />
+              </View>
             </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+          </TouchableWithoutFeedback>
+        </View>
+      </TouchableWithoutFeedback>
+    </Modal>
 
       {/* Modal para Boleto */}
       <Modal
@@ -159,25 +168,7 @@ export default function Actions() {
         </TouchableWithoutFeedback>
       </Modal>
 
-      {/* Modal para Carteira */}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisibleCarteira}
-        onRequestClose={() => setModalVisibleCarteira(false)}
-      >
-        <TouchableWithoutFeedback>
-          <View style={styles.modalBackground}>
-            <View style={styles.modalContent}>
-              <Text>Conteúdo do modal para Carteira</Text>
-              <TouchableOpacity onPress={() => setModalVisibleCarteira(false)} style={styles.closeIcon}>
-                <Feather name="x" size={24} color="black" />
-              </TouchableOpacity>
-            </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
-
+      
       {/* Modal para Cartão */}
       <Modal
         animationType="slide"
@@ -229,16 +220,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent:'flex-end',
     alignItems: 'center',
-    padding:36,
+    padding:25,
   
   },
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: '#C1F4F8',
     padding: 20,
     borderRadius: 18,
     elevation: 5,
-    height:400,
-    width:360,
+    height:600,
+    width:380,
   },
   closeIcon: {
     position: 'absolute',
@@ -248,11 +239,19 @@ const styles = StyleSheet.create({
   Titlehome:{
     marginTop:16,
     fontSize:18,
+    fontWeight:'bold'
   },
 
-botao:{
-
+Select:{
+marginTop:24,
+marginLeft:12,
+ color:'#8C2A96',
+ fontWeight:'bold'
 },
+
+date:{
+  width:350,
+}
 
 });
 

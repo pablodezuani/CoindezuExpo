@@ -57,7 +57,7 @@ export default function Header({ name }) {
             <Feather name="user" size={27} color="black" />
           )}
         </TouchableOpacity>
-        <Text style={styles.username}>{name}</Text>
+        <Text style={styles.username}>Pablo Dezuani</Text>
       </View>
 
       <Modal

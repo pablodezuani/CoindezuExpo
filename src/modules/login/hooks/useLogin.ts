@@ -34,6 +34,9 @@ const handleGoToResetUser =() =>{
 const handleGoToHome =() =>{
   navigate(MenuUrl.HOME);
 }
+const handleGoToCaixinha =() =>{
+  navigate(MenuUrl.CAIXINHA);
+}
 const handleOnChangeEmail =(event:NativeSyntheticEvent<TextInputChangeEventData>) =>{
   setErrorMessage('');
 setEmail(event.nativeEvent.text);
@@ -58,5 +61,6 @@ handleGoToCreateUser,
 handleGoToResetUser,
 handleGoToHome,
 handleOnChangetoHome,
+handleGoToCaixinha,
  }
 }
